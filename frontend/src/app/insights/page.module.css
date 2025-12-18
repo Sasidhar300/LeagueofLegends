@@ -1,0 +1,240 @@
+.insightsContainer {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.playerName {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #9ca3af;
+}
+
+.contentGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+/* Section Cards */
+.section {
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionIcon {
+  font-size: 1.5rem;
+}
+
+.strengthsIcon {
+  color: #10b981;
+}
+
+.improvementsIcon {
+  color: #f59e0b;
+}
+
+.stopIcon {
+  color: #ef4444;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e5e7eb;
+  margin: 0;
+}
+
+.sectionContent {
+  color: #d1d5db;
+}
+
+/* Insight Items */
+.insightList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.insightItem {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insightItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.insightItemStrength {
+  border-left-color: #10b981;
+}
+
+.insightItemImprovement {
+  border-left-color: #f59e0b;
+}
+
+.insightItemStop {
+  border-left-color: #ef4444;
+}
+
+.insightTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin-bottom: 0.5rem;
+}
+
+.insightDescription {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.insightStat {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Charts Section */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.chartCard {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stats Table */
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.statsTable thead {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.statsTable th {
+  padding: 1rem;
+  text-align: left;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(148, 163, 184, 0.2);
+}
+
+.statsTable td {
+  padding: 1rem;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.statsTable tbody tr:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.championName {
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.positiveValue {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.negativeValue {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.neutralValue {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.backButton:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .insightsContainer {
+    padding: 3rem 2rem;
+  }
+
+  .chartsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .playerName {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chartsSection {
+    grid-column: 1 / -1;
+  }
+}
