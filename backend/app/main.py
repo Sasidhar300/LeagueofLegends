@@ -65,12 +65,12 @@ async def analyze_player(request: AnalyzeRequest):
         
         # 2. AI Analysis (Parallel safe?)
         # We can run rating generation here.
-        rating_json = bedrock_client.generate_rating(snapshot)
+        rating_json = await asyncio.to_thread(bedrock_client.generate_rating, snapshot)
         
         # 3. Generate Initial Coaching Tip
         # Use the agent to generate the initial tip based on the summary
         initial_prompt = f"The analyst provided this summary: '{rating_json.get('summary')}'. Give me a starting coaching tip based on this."
-        tip = bedrock_client.invoke_agent(initial_prompt, snapshot)
+        tip = await asyncio.to_thread(bedrock_client.invoke_agent, initial_prompt, snapshot)
         
         analysis = AnalysisResult(
             rating=rating_json.get("rating", 0),
@@ -116,7 +116,7 @@ async def chat_with_coach(request: ChatRequest):
     session = await get_session(request.session_id)
     
     # Generate response via Agent
-    response = bedrock_client.invoke_agent(request.message, session.snapshot, session.chat_history)
+    response = await asyncio.to_thread(bedrock_client.invoke_agent, request.message, session.snapshot, session.chat_history)
     
     # Store history (optional, for context window management)
     session.chat_history.append({"user": request.message, "coach": response})

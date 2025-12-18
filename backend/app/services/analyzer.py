@@ -129,8 +129,13 @@ class AnalyzerService:
                             xp_10 = p_stats.get("xp", 0)
                             
                     # Early Items (< 15 mins)
-                    events = timeline.get("info", {}).get("events", [])
-                    for event in events:
+                    # Early Items (< 15 mins)
+                    frames_list = timeline.get("info", {}).get("frames", [])
+                    all_events = []
+                    for frm in frames_list:
+                        all_events.extend(frm.get("events", []))
+
+                    for event in all_events:
                         if event.get("type") == "ITEM_PURCHASED" and event.get("participantId") == participant_id:
                             if event.get("timestamp", 0) < 15 * 60 * 1000: # 15 mins
                                 early_items.append(event.get("itemId"))
